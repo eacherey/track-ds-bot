@@ -1,0 +1,10 @@
+[package]
+name = "track-ds-bot"
+version = "0.1.0"
+authors = ["eachere"]
+edition = "2021"
+
+[dependencies]
+dotenvy = "0.15.7"
+serenity = { version = "0.12.5", features = ["client", "gateway", "rustls_backend", "model", "cache", "builder", "utils",] }
+tokio = { version = "1.53.1", features = ["macros", "rt-multi-thread"] }

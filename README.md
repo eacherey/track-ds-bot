@@ -1,0 +1,1 @@
+# Discord bot built with Rust & Serenity that logs message edits. 
