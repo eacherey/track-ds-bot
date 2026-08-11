@@ -1,7 +1,7 @@
 use serenity::all::{Colour, Context, CreateMessage, GuildId, Member, User};
 
 use crate::config::Config;
-use crate::utils::{create_description, create_embed};
+use crate::utils::{create_member_description, create_member_embed};
 
 pub async fn handle(
     ctx: &Context,
@@ -23,9 +23,9 @@ pub async fn handle(
         "Данные недоступны".to_string()
     };
 
-    let description = create_description(&user, joined_timestamp);
+    let description = create_member_description(&user, joined_timestamp);
 
-    let embed = create_embed(
+    let embed = create_member_embed(
         "🚪 Информация о вышедшем участнике".to_string(),
         description,
         Colour::from_rgb(150, 75, 0),

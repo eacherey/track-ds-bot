@@ -1,6 +1,6 @@
 use serenity::all::{Colour, CreateEmbed, CreateEmbedFooter, GuildId, Timestamp, User};
 
-pub fn create_embed(
+pub fn create_member_embed(
     title: String,
     description: String,
     color: Colour,
@@ -16,13 +16,13 @@ pub fn create_embed(
         .timestamp(Timestamp::now())
 }
 
-pub fn create_description(user: &User, joined_timestamp: String) -> String {
+pub fn create_member_description(user: &User, joined_timestamp: String) -> String {
     format!(
         "**Пользователь:** {} (`{}`)\n\
-            **ID:** `{}`\n\
-            **Бот:** {} | **Системный:** {}\n\
-            **Дата регистрации:** <t:{}:F> (<t:{}:R>)\n\
-            **Дата входа:** {}",
+        **ID:** `{}`\n\
+        **Бот:** {} | **Системный:** {}\n\
+        **Дата регистрации:** <t:{}:F> (<t:{}:R>)\n\
+        **Дата входа:** {}",
         user.global_name.as_deref().unwrap_or("Не указано"),
         user.tag(),
         user.id,

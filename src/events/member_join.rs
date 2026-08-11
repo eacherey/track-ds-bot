@@ -1,7 +1,7 @@
 use serenity::all::{Colour, Context, CreateMessage, Member};
 
 use crate::config::Config;
-use crate::utils::{create_description, create_embed};
+use crate::utils::{create_member_description, create_member_embed};
 
 pub async fn handle(ctx: &Context, config: &Config, member: Member) {
     let channel_id = config.log_channel_member_events;
@@ -12,9 +12,9 @@ pub async fn handle(ctx: &Context, config: &Config, member: Member) {
         member.joined_at.map(|t| t.unix_timestamp()).unwrap_or(0)
     );
 
-    let description = create_description(&member.user, joined_timestamp);
+    let description = create_member_description(&member.user, joined_timestamp);
 
-    let embed = create_embed(
+    let embed = create_member_embed(
         "🛡️ Информация о новом участнике".to_string(),
         description,
         Colour::from_rgb(233, 30, 99),

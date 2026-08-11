@@ -1,4 +1,4 @@
-use dotenvy::{dotenv, var};
+use dotenvy::var;
 use serenity::all::ChannelId;
 
 pub struct Config {
@@ -14,6 +14,7 @@ impl Config {
                 .expect("LOG_CHANNEL_MESSAGE_EDITS not set")
                 .parse()
                 .expect("Invalid LOG_CHANNEL_MESSAGE_EDITS"),
+
             log_channel_member_events: var("LOG_CHANNEL_MEMBER_EVENTS")
                 .expect("LOG_CHANNEL_MEMBER_EVENTS not set")
                 .parse()
